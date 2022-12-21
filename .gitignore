@@ -1,7 +1,6 @@
 # Eclipse files
-new file:   Simple/src/application/App.java
-        new file:   bin/app/App.class
-        new file:   bin/application/App.class
+.classpath
+.project
 
 # Compiled class file
 *.class
