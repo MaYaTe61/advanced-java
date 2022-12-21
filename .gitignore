@@ -1,3 +1,8 @@
+# Eclipse files
+new file:   Simple/src/application/App.java
+        new file:   bin/app/App.class
+        new file:   bin/application/App.class
+
 # Compiled class file
 *.class
 
@@ -21,3 +26,4 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/bin/
