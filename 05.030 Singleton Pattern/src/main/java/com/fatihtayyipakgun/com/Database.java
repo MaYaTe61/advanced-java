@@ -3,10 +3,10 @@ package com.fatihtayyipakgun.com;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class Database {
 	private static Database db = new Database();
-	public static final String URL = "jdbc:mysql://localhost:3306/people";
 	private Connection conn;
 	
 	public static Database instance() {
@@ -17,8 +17,20 @@ public class Database {
 		
 	}
 	
-	public void connect() throws SQLException {
-		conn = DriverManager.getConnection(URL, "root", "Ftayip123asd");
+	public Connection getConnection() {
+		return conn;
+	}
+	
+	public void connect(Properties props) throws SQLException {
+		String server = props.getProperty("server");
+		String port = props.getProperty("port");
+		String database = props.getProperty("database");
+		String user = props.getProperty("user");
+		String password = props.getProperty("password");
+		
+		String url = String.format("jdbc:mysql://%s:%s/%s", server, port, database);
+		
+		conn = DriverManager.getConnection(url, user, password);
 	}
 	
 	public void close() throws SQLException {
