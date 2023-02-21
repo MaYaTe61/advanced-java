@@ -13,20 +13,14 @@ import com.mysql.cj.xdevapi.DbDoc;
 public class App {
 	public static void main(String[] args) {
 		
-		Properties props = new Properties();
-		try {
-			props.load(App.class.getResourceAsStream("/config/db.properties"));
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-			return;
-		}
+		var props = Profile.getProperties("db");
 		
 		var db = Database.instance();
 		
 		try {
 			db.connect(props);
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Cannot connect to database.");
 			return;
 		}
 		

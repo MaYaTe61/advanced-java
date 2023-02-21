@@ -6,4 +6,5 @@
  *
  */
 module Deneme {
+	requires java.naming;
 }
